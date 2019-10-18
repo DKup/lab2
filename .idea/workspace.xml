@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="639a82cb-a031-445c-8608-fcd4913b0289" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFraim.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFraim$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFraim$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFraim$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFraim$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFraim$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFraim$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFraim.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFraim.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFraim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFraim.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +46,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Formuls" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="bsu.rfe.java.group6.lab2.Ozhich.varC2.MainFraim" />
       <module name="lab2" />
       <method v="2">
@@ -63,7 +65,9 @@
       <option name="presentableId" value="Default" />
       <updated>1570747517190</updated>
       <workItem from="1570747519996" duration="688000" />
-      <workItem from="1571071696142" duration="4785000" />
+      <workItem from="1571071696142" duration="5240000" />
+      <workItem from="1571085821112" duration="2074000" />
+      <workItem from="1571378623213" duration="7764000" />
     </task>
     <servers />
   </component>
