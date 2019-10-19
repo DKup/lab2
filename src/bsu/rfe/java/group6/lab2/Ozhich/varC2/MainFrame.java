@@ -12,13 +12,15 @@ import static java.lang.Math.*;
 
 public class MainFrame extends JFrame {
 
-    private static final int WIDTH = 510;
-    private static final int HEIGHT = 300;
+    private static final int WIDTH = 1000;
+    private static final int HEIGHT = 600;
 
     private JTextField textFieldX;
     private JTextField textFieldY;
     private JTextField textFieldZ;
-    private JTextField textFieldMem;
+    private JTextField textFieldMem1;
+    private JTextField textFieldMem2;
+    private JTextField textFieldMem3;
     private JTextField textFieldResult;
 
     private JLabel labelImg = new JLabel();
@@ -32,9 +34,9 @@ public class MainFrame extends JFrame {
     private int formulaId = 1;
     private int memId = 1;
 
-    private Double doubleMem1;
-    private Double doubleMem2;
-    private Double doubleMem3;
+    private Double doubleMem1 = 0.0;
+    private Double doubleMem2 = 0.0;
+    private Double doubleMem3 = 0.0;
 
     private Image img1 = ImageIO.read(new File("src/img1.bmp"));
     private Image img2 = ImageIO.read(new File("src/img2.bmp"));
@@ -71,6 +73,15 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 MainFrame.this.memId = memId;
+                if (memId == 1) {
+                    textFieldMem1.setText(doubleMem1.toString());
+                }
+                else if (memId == 2) {
+                    textFieldMem2.setText(doubleMem2.toString());
+                }
+                else if (memId == 3) {
+                    textFieldMem3.setText(doubleMem3.toString());
+                }
             }
         });
         radioButtonsMem.add(button);
@@ -85,9 +96,10 @@ public class MainFrame extends JFrame {
         // box с изображением формулы
         labelImg.setIcon(new ImageIcon(img1));
         Box hBoxImg = Box.createHorizontalBox();
-        hBoxImg.add(Box.createVerticalGlue());
+        hBoxImg.add(Box.createHorizontalGlue());
         hBoxImg.add(labelImg);
-        hBoxImg.add(Box.createVerticalGlue());
+        hBoxImg.add(Box.createHorizontalGlue());
+        hBoxImg.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         // box с формулами
         hBoxFormulaType = Box.createHorizontalBox();
         hBoxFormulaType.add(Box.createHorizontalGlue());
@@ -95,7 +107,7 @@ public class MainFrame extends JFrame {
         addRadioButtonFormula("Формула 2", 2);
         radioButtonsFormulaType.setSelected(radioButtonsFormulaType.getElements().nextElement().getModel(), true);
         hBoxFormulaType.add(Box.createHorizontalGlue());
-        hBoxFormulaType.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+        hBoxFormulaType.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         // box для значенией x, y, z
         JLabel labelForX = new JLabel("X:");
         textFieldX = new JTextField("0", 10);
@@ -107,7 +119,7 @@ public class MainFrame extends JFrame {
         textFieldZ = new JTextField("0", 10);
         textFieldZ.setMaximumSize(textFieldZ.getPreferredSize());
         Box hBoxVariables = Box.createHorizontalBox();
-        hBoxVariables.setBorder(BorderFactory.createLineBorder(Color.RED));
+        hBoxVariables.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         hBoxVariables.add(Box.createHorizontalGlue());
         hBoxVariables.add(labelForX);
         hBoxVariables.add(Box.createHorizontalStrut(10));
@@ -125,18 +137,38 @@ public class MainFrame extends JFrame {
         hBoxMemVariables = Box.createHorizontalBox();
         hBoxMemVariables.add(Box.createHorizontalGlue());
         addRadioButtonMem("Переменная 1", 1);
-        hBoxMemVariables.add(Box.createHorizontalStrut(15));
+        hBoxMemVariables.add(Box.createHorizontalStrut(200));
         addRadioButtonMem("Переменная 2", 2);
-        hBoxMemVariables.add(Box.createHorizontalStrut(15));
+        hBoxMemVariables.add(Box.createHorizontalStrut(200));
         addRadioButtonMem("Переменная 3", 3);
         radioButtonsMem.setSelected(radioButtonsMem.getElements().nextElement().getModel(), true);
         hBoxMemVariables.add(Box.createHorizontalGlue());
+        hBoxMemVariables.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         // box значения текущей ячейки памяти
-        textFieldMem = new JTextField( "0", 20);
+        JLabel labelForMem1 = new JLabel("Переменная 1: ");
+        textFieldMem1 = new JTextField("0", 20);
+        textFieldMem1.setMaximumSize(textFieldMem1.getPreferredSize());
+        JLabel labelForMem2 = new JLabel("Переменная 2: ");
+        textFieldMem2 = new JTextField("0", 20);
+        textFieldMem2.setMaximumSize(textFieldMem2.getPreferredSize());
+        JLabel labelForMem3 = new JLabel("Переменная 3: ");
+        textFieldMem3 = new JTextField("0", 20);
+        textFieldMem3.setMaximumSize(textFieldMem3.getPreferredSize());
         Box hBoxMemValue = Box.createHorizontalBox();
         hBoxMemValue.add(Box.createHorizontalGlue());
-        hBoxMemValue.add(textFieldMem);
+        hBoxMemValue.add(labelForMem1);
+        hBoxMemValue.add(Box.createHorizontalStrut(10));
+        hBoxMemValue.add(textFieldMem1);
+        hBoxMemValue.add(Box.createHorizontalStrut(15));
+        hBoxMemValue.add(labelForMem2);
+        hBoxMemValue.add(Box.createHorizontalStrut(10));
+        hBoxMemValue.add(textFieldMem2);
+        hBoxMemValue.add(Box.createHorizontalStrut(15));
+        hBoxMemValue.add(labelForMem3);
+        hBoxMemValue.add(Box.createHorizontalStrut(10));
+        hBoxMemValue.add(textFieldMem3);
         hBoxMemValue.add(Box.createHorizontalGlue());
+        hBoxMemValue.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         // box для результата
         JLabel labelForResult = new JLabel("Результат:");
         textFieldResult = new JTextField("0", 20);
@@ -147,7 +179,7 @@ public class MainFrame extends JFrame {
         hBoxResult.add(Box.createHorizontalStrut(10));
         hBoxResult.add(textFieldResult);
         hBoxResult.add(Box.createHorizontalGlue());
-        hBoxResult.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        hBoxResult.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         // кнопки
         JButton buttonCalc = new JButton("Вычислить");
         buttonCalc.addActionListener(new ActionListener() {
@@ -175,7 +207,7 @@ public class MainFrame extends JFrame {
                 textFieldY.setText("0");
                 textFieldZ.setText("0");
                 textFieldResult.setText("0");
-                textFieldMem.setText("0");
+                textFieldMem1.setText("0");
                 doubleMem1 = 0.0;
                 doubleMem2 = 0.0;
                 doubleMem3 = 0.0;
@@ -185,10 +217,18 @@ public class MainFrame extends JFrame {
         buttonMC.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if(memId == 1) doubleMem1 = 0.0;
-                if(memId == 2) doubleMem2 = 0.0;
-                if(memId == 3) doubleMem3 = 0.0;
-                textFieldMem.setText("0");
+                if(memId == 1) {
+                    doubleMem1 = 0.0;
+                    textFieldMem1.setText("0");
+                }
+                if(memId == 2) {
+                    doubleMem2 = 0.0;
+                    textFieldMem2.setText("0");
+                }
+                if(memId == 3) {
+                    doubleMem3 = 0.0;
+                    textFieldMem3.setText("0");
+                }
             }
         });
         JButton buttonMPlus = new JButton("M+");
@@ -196,17 +236,18 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 Double result = Double.parseDouble(textFieldResult.getText());
-                double mem= 0.0;
                 if (memId == 1) {
-                    mem = doubleMem1 + result;
+                    doubleMem1 += result;
+                    textFieldMem1.setText(Double.toString(doubleMem1));
                 }
-                if (memId == 2) {
-                    mem = doubleMem2 + result;
+                else if (memId == 2) {
+                    doubleMem2 += result;
+                    textFieldMem2.setText(Double.toString(doubleMem2));
                 }
-                if (memId == 3) {
-                    mem = doubleMem3 + result;
+                else if (memId == 3) {
+                    doubleMem3 += result;
+                    textFieldMem3.setText(Double.toString(doubleMem3));
                 }
-                textFieldMem.setText(Double.toString(mem));
             }
         });
         // box для кнопок очистки, вычисления результата и управления памятью
@@ -220,7 +261,7 @@ public class MainFrame extends JFrame {
         hBoxButtons.add(Box.createHorizontalStrut(30));
         hBoxButtons.add(buttonMPlus);
         hBoxButtons.add(Box.createHorizontalGlue());
-        hBoxButtons.setBorder(BorderFactory.createLineBorder(Color.GREEN));
+        hBoxButtons.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         // сборка всех box в один вертикальный box
         Box contentBox = Box.createVerticalBox();
         contentBox.add(Box.createVerticalGlue());
