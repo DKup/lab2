@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="639a82cb-a031-445c-8608-fcd4913b0289" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame.java" afterDir="false" />
-    </list>
+    <list default="true" id="639a82cb-a031-445c-8608-fcd4913b0289" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +66,7 @@
       <workItem from="1571470033583" duration="915000" />
       <workItem from="1571488563366" duration="9026000" />
       <workItem from="1571497745206" duration="5002000" />
-      <workItem from="1571508418696" duration="889000" />
+      <workItem from="1571508418696" duration="1216000" />
     </task>
     <servers />
   </component>
