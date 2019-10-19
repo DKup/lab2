@@ -28,7 +28,7 @@ public class MainFrame extends JFrame {
     private ButtonGroup radioButtonsFormulaType = new ButtonGroup();
     private ButtonGroup radioButtonsMem = new ButtonGroup();
 
-    private Box hBoxMemVariables;
+    private Box hBoxMem;
     private Box hBoxFormulaType;
 
     private int formulaId = 1;
@@ -85,7 +85,7 @@ public class MainFrame extends JFrame {
             }
         });
         radioButtonsMem.add(button);
-        hBoxMemVariables.add(button);
+        hBoxMem.add(button);
     }
 
     public MainFrame() throws IOException {
@@ -110,13 +110,13 @@ public class MainFrame extends JFrame {
         hBoxFormulaType.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         // box для значенией x, y, z
         JLabel labelForX = new JLabel("X:");
-        textFieldX = new JTextField("0", 10);
+        textFieldX = new JTextField("0.0", 10);
         textFieldX.setMaximumSize(textFieldX.getPreferredSize());
         JLabel labelForY = new JLabel("Y:");
-        textFieldY = new JTextField("0", 10);
+        textFieldY = new JTextField("0.0", 10);
         textFieldY.setMaximumSize(textFieldY.getPreferredSize());
         JLabel labelForZ = new JLabel("Z:");
-        textFieldZ = new JTextField("0", 10);
+        textFieldZ = new JTextField("0.0", 10);
         textFieldZ.setMaximumSize(textFieldZ.getPreferredSize());
         Box hBoxVariables = Box.createHorizontalBox();
         hBoxVariables.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -133,45 +133,34 @@ public class MainFrame extends JFrame {
         hBoxVariables.add(Box.createHorizontalStrut(10));
         hBoxVariables.add(textFieldZ);
         hBoxVariables.add(Box.createHorizontalGlue());
-        // box выбора ячейки памяти
-        hBoxMemVariables = Box.createHorizontalBox();
-        hBoxMemVariables.add(Box.createHorizontalGlue());
+        // box выбора и отображения ячеек памяти
+        hBoxMem = Box.createHorizontalBox();
+        hBoxMem.add(Box.createHorizontalGlue());
+        textFieldMem1 = new JTextField("0.0", 15);
+        textFieldMem1.setMaximumSize(textFieldMem1.getPreferredSize());
+        textFieldMem2 = new JTextField("0.0", 15);
+        textFieldMem2.setMaximumSize(textFieldMem2.getPreferredSize());
+        textFieldMem3 = new JTextField("0.0", 15);
+        textFieldMem3.setMaximumSize(textFieldMem3.getPreferredSize());
+        hBoxMem = Box.createHorizontalBox();
+        hBoxMem.add(Box.createHorizontalGlue());
         addRadioButtonMem("Переменная 1", 1);
-        hBoxMemVariables.add(Box.createHorizontalStrut(200));
+        hBoxMem.add(Box.createHorizontalStrut(10));
+        hBoxMem.add(textFieldMem1);
+        hBoxMem.add(Box.createHorizontalStrut(15));
         addRadioButtonMem("Переменная 2", 2);
-        hBoxMemVariables.add(Box.createHorizontalStrut(200));
+        hBoxMem.add(Box.createHorizontalStrut(10));
+        hBoxMem.add(textFieldMem2);
+        hBoxMem.add(Box.createHorizontalStrut(15));
         addRadioButtonMem("Переменная 3", 3);
         radioButtonsMem.setSelected(radioButtonsMem.getElements().nextElement().getModel(), true);
-        hBoxMemVariables.add(Box.createHorizontalGlue());
-        hBoxMemVariables.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        // box значения текущей ячейки памяти
-        JLabel labelForMem1 = new JLabel("Переменная 1: ");
-        textFieldMem1 = new JTextField("0", 20);
-        textFieldMem1.setMaximumSize(textFieldMem1.getPreferredSize());
-        JLabel labelForMem2 = new JLabel("Переменная 2: ");
-        textFieldMem2 = new JTextField("0", 20);
-        textFieldMem2.setMaximumSize(textFieldMem2.getPreferredSize());
-        JLabel labelForMem3 = new JLabel("Переменная 3: ");
-        textFieldMem3 = new JTextField("0", 20);
-        textFieldMem3.setMaximumSize(textFieldMem3.getPreferredSize());
-        Box hBoxMemValue = Box.createHorizontalBox();
-        hBoxMemValue.add(Box.createHorizontalGlue());
-        hBoxMemValue.add(labelForMem1);
-        hBoxMemValue.add(Box.createHorizontalStrut(10));
-        hBoxMemValue.add(textFieldMem1);
-        hBoxMemValue.add(Box.createHorizontalStrut(15));
-        hBoxMemValue.add(labelForMem2);
-        hBoxMemValue.add(Box.createHorizontalStrut(10));
-        hBoxMemValue.add(textFieldMem2);
-        hBoxMemValue.add(Box.createHorizontalStrut(15));
-        hBoxMemValue.add(labelForMem3);
-        hBoxMemValue.add(Box.createHorizontalStrut(10));
-        hBoxMemValue.add(textFieldMem3);
-        hBoxMemValue.add(Box.createHorizontalGlue());
-        hBoxMemValue.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        hBoxMem.add(Box.createHorizontalStrut(10));
+        hBoxMem.add(textFieldMem3);
+        hBoxMem.add(Box.createHorizontalGlue());
+        hBoxMem.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         // box для результата
         JLabel labelForResult = new JLabel("Результат:");
-        textFieldResult = new JTextField("0", 20);
+        textFieldResult = new JTextField("0.0", 20);
         textFieldResult.setMaximumSize(textFieldResult.getPreferredSize());
         Box hBoxResult = Box.createHorizontalBox();
         hBoxResult.add(Box.createHorizontalGlue());
@@ -180,7 +169,7 @@ public class MainFrame extends JFrame {
         hBoxResult.add(textFieldResult);
         hBoxResult.add(Box.createHorizontalGlue());
         hBoxResult.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        // кнопки
+        // кнопки очистки, вычисления результата и управления памятью
         JButton buttonCalc = new JButton("Вычислить");
         buttonCalc.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ev) {
@@ -203,11 +192,13 @@ public class MainFrame extends JFrame {
         JButton buttonReset = new JButton("Очистить поля");
         buttonReset.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ev) {
-                textFieldX.setText("0");
-                textFieldY.setText("0");
-                textFieldZ.setText("0");
-                textFieldResult.setText("0");
-                textFieldMem1.setText("0");
+                textFieldX.setText("0.0");
+                textFieldY.setText("0.0");
+                textFieldZ.setText("0.0");
+                textFieldResult.setText("0.0");
+                textFieldMem1.setText("0.0");
+                textFieldMem2.setText("0.0");
+                textFieldMem3.setText("0.0");
                 doubleMem1 = 0.0;
                 doubleMem2 = 0.0;
                 doubleMem3 = 0.0;
@@ -219,15 +210,15 @@ public class MainFrame extends JFrame {
             public void actionPerformed(ActionEvent actionEvent) {
                 if(memId == 1) {
                     doubleMem1 = 0.0;
-                    textFieldMem1.setText("0");
+                    textFieldMem1.setText("0.0");
                 }
                 if(memId == 2) {
                     doubleMem2 = 0.0;
-                    textFieldMem2.setText("0");
+                    textFieldMem2.setText("0.0");
                 }
                 if(memId == 3) {
                     doubleMem3 = 0.0;
-                    textFieldMem3.setText("0");
+                    textFieldMem3.setText("0.0");
                 }
             }
         });
@@ -268,8 +259,7 @@ public class MainFrame extends JFrame {
         contentBox.add(hBoxImg);
         contentBox.add(hBoxFormulaType);
         contentBox.add(hBoxVariables);
-        contentBox.add(hBoxMemValue);
-        contentBox.add(hBoxMemVariables);
+        contentBox.add(hBoxMem);
         contentBox.add(hBoxResult);
         contentBox.add(hBoxButtons);
         contentBox.add(Box.createVerticalGlue());

@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="639a82cb-a031-445c-8608-fcd4913b0289" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/bsu/rfe/java/group6/lab2/Ozhich/varC2/MainFrame$5.class" afterDir="false" />
@@ -75,7 +73,8 @@
       <workItem from="1571387714647" duration="392000" />
       <workItem from="1571470033583" duration="915000" />
       <workItem from="1571488563366" duration="9026000" />
-      <workItem from="1571497745206" duration="4764000" />
+      <workItem from="1571497745206" duration="5002000" />
+      <workItem from="1571508418696" duration="889000" />
     </task>
     <servers />
   </component>
