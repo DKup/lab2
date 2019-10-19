@@ -33,11 +33,11 @@ public class MainFrame extends JFrame {
     private Image img2 = ImageIO.read(new File("src/img2.bmp"));
 
     public Double calculate1 (Double x, Double y, Double z) {
-        return pow(pow(log(1 + x), 2) + cos(PI * pow(z, 3)), sin(y)) + pow(pow(E, pow(x, 2)) + cos(pow(E, z)) + sqrt(1 / y), 1 / x);
+        return pow(log(pow(1 + x, 2)) + cos(PI * pow(z, 3)), sin(y)) + pow(pow(E, pow(x, 2)) + cos(pow(E, z)) + sqrt(1 / y), 1 / x);
     }
 
     public Double calculate2 (Double x, Double y, Double z) {
-        return x * x * x + 1 / y;           // ЗАМЕНИТЬ ФОРМУЛУ
+        return pow(cos(PI * pow(x, 3)) + log(pow(1 + y, 2)), 0.25) * (pow(E, pow(z, 2)) + sqrt(1 / x) + cos(pow(E, y)));
     }
 
     private void addRadioButton (String buttonName, final int formulaId) {
@@ -132,6 +132,7 @@ public class MainFrame extends JFrame {
             public void actionPerformed(ActionEvent ev) {
                 textFieldX.setText("0");
                 textFieldY.setText("0");
+                textFieldZ.setText("0");
                 textFieldResult.setText("0");
             }
         });
