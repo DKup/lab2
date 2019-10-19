@@ -10,10 +10,10 @@ import java.io.IOException;
 
 import static java.lang.Math.*;
 
-public class MainFraim extends JFrame {
+public class MainFrame extends JFrame {
 
-    private static final int WIDTH = 400;
-    private static final int HEIGTH = 320;
+    private static final int WIDTH = 510;
+    private static final int HEIGHT = 320;
 
     private JTextField textFieldX;
     private JTextField textFieldY;
@@ -21,13 +21,7 @@ public class MainFraim extends JFrame {
 
     private JTextField textFieldResult;
 
-    JPanel formulaImg = new JPanel() {
-        @Override
-        protected void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            g.drawImage(img1, WIDTH / 2, 0, null);
-        }
-    };
+     JLabel labelImg = new JLabel();
 
     private ButtonGroup radioButtons = new ButtonGroup();
 
@@ -50,27 +44,13 @@ public class MainFraim extends JFrame {
         JRadioButton button = new JRadioButton(buttonName);
         button.addActionListener(new ActionListener() {
             public void actionPerformed (ActionEvent ev) {
-                MainFraim.this.formulaId = formulaId;
+                MainFrame.this.formulaId = formulaId;
                 // вывод изображения в зависимости от выбранной кнопки
-                if (MainFraim.this.formulaId == 1) {
-                    formulaImg = new JPanel() {
-                        @Override
-                        protected void paintComponent(Graphics g) {
-                            super.paintComponent(g);
-                            g.drawImage(img1, WIDTH / 2, 0, null);
-                        }
-                    };
-                    repaint();
+                if (MainFrame.this.formulaId == 1) {
+                    labelImg.setIcon(new ImageIcon(img1));
                 }
-                if (MainFraim.this.formulaId == 2) {
-                    formulaImg = new JPanel() {
-                        @Override
-                        protected void paintComponent(Graphics g) {
-                            super.paintComponent(g);
-                            g.drawImage(img2, WIDTH / 2, 0, null);
-                        }
-                    };
-                    repaint();
+                if (MainFrame.this.formulaId == 2) {
+                    labelImg.setIcon(new ImageIcon(img2));
                 }
             }
         });
@@ -79,16 +59,17 @@ public class MainFraim extends JFrame {
 
     }
 
-    public MainFraim () throws IOException {
+    public MainFrame() throws IOException {
         super("Вычисление формулы");
         setSize(WIDTH, HEIGHT);
         Toolkit kit = Toolkit.getDefaultToolkit();
-        setLocation((kit.getScreenSize().width - WIDTH) / 2, (kit.getScreenSize().height - HEIGTH) / 2);
+        setLocation((kit.getScreenSize().width - WIDTH) / 2, (kit.getScreenSize().height - HEIGHT) / 2);
         // box с формулами
         hboxFormulaType.add(Box.createHorizontalGlue());
         addRadioButton("Формула 1", 1);
         addRadioButton("Формула 2", 2);
         radioButtons.setSelected(radioButtons.getElements().nextElement().getModel(), true);
+        labelImg.setIcon(new ImageIcon(img1));
         hboxFormulaType.add(Box.createHorizontalGlue());
         hboxFormulaType.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
         // box для значенией x, y, z
@@ -141,7 +122,7 @@ public class MainFraim extends JFrame {
                         result = calculate2(x, y, z);
                     textFieldResult.setText(result.toString());
             } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(MainFraim.this, "Ошибка в формате записи числа с плавающей точкой", "Ошибочный формат числа",
+                    JOptionPane.showMessageDialog(MainFrame.this, "Ошибка в формате записи числа с плавающей точкой", "Ошибочный формат числа",
                             JOptionPane.WARNING_MESSAGE);
                 }
         }
@@ -167,7 +148,7 @@ public class MainFraim extends JFrame {
         contentBox.add(Box.createVerticalGlue());
         Box hboxImg = Box.createHorizontalBox();
         hboxImg.add(Box.createVerticalGlue());
-        hboxImg.add(formulaImg);
+        hboxImg.add(labelImg);
         hboxImg.add(Box.createVerticalGlue());
         contentBox.add(hboxImg);
         contentBox.add(Box.createVerticalGlue());
@@ -180,7 +161,7 @@ public class MainFraim extends JFrame {
     }
 
     public static void main(String[] args) throws IOException {
-        MainFraim frame = new MainFraim();
+        MainFrame frame = new MainFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
